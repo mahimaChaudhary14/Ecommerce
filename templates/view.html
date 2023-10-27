@@ -1,0 +1,133 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+<style>
+table, th, td {
+  border: 1px solid black;
+}
+</style>
+</head>
+<body>
+
+<h2>Product Details</h2>
+
+<button>
+    <a href="{% url 'add_products' %}" target="_blank">Add Product</a>
+</button>
+
+<table style="width:100%">
+  <tr>
+    <th>Product Name</th>
+    <th>Description</th> 
+    <th>Price</th>
+    <th>Category</th>
+    <th>Created_at</th>
+    <th>Updated_at</th>
+    <th>Action</th>
+
+
+  </tr>
+  <tr>
+    {% for i in product %}
+    <td>{{ i.name }}</td>
+    <td>{{ i.description }}</td>
+    <td>{{ i.price }}</td>
+    <td>{{ i.category }}</td>
+    <td>{{ i.created_at }}</td>
+    <td>{{ i.updated_at }}</td>
+    <td>
+        <a href="{% url 'edit_products' i.id %}" >
+        <i class="fas fa-trash">Edit</i>
+        </a>
+    <a href="{% url 'delete_products' i.id %}" >
+    <i class="fas fa-trash">Delete</i>
+    </a>
+</td>
+
+
+
+    
+  </tr>
+  {% endfor %}
+  
+</table>
+
+</body>
+</html> -->
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 80%;
+            margin: 20px auto;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #ddd;
+        }
+    </style>
+</head>
+<body style="background-color: #05c46b;">
+
+<h2>View Details</h2>
+<button>
+    <a href="{% url 'add_products' %}" target="_blank">Add Product</a>
+</button>
+<table>
+    <thead>
+        <tr>
+            <th>Product Name</th>
+            <th>Description</th> 
+            <th>Price</th>
+            <th>Category</th>
+            <th>Created_at</th>
+            <th>Updated_at</th>
+            <th>Action</th>
+        
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            {% for i in product %}
+    <td>{{ i.name }}</td>
+    <td>{{ i.description }}</td>
+    <td>{{ i.price }}</td>
+    <td>{{ i.category }}</td>
+    <td>{{ i.created_at }}</td>
+    <td>{{ i.updated_at }}</td>
+    <td>
+        <a href="{% url 'edit_products' i.id %}" >
+        <i class="fas fa-trash">Edit</i>
+        </a>
+    <a href="{% url 'delete_products' i.id %}" >
+    <i class="fas fa-trash">Delete</i>
+    </a>
+</td>
+
+
+
+    
+  </tr>
+  {% endfor %}
+        
+    </tbody>
+</table>
+
+</body>
+</html>
